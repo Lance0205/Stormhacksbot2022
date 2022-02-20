@@ -1,6 +1,15 @@
 import discord
 import random
 
+quoteOpen = open("quotes.txt",'r',encoding="utf-8")
+quotes = []
+
+for quote in quoteOpen:
+    quote = quote.strip()
+    quotes.append(quote)
+
+print(quotes)
+
 client = discord.Client()
 
 @client.event
@@ -12,18 +21,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    words = ["You are loved!",
-    "You can do this!",
-    ""
-    random_compliment = random.choice(words)
-
-    if message.content.startswith('help me'):
-        await message.channel.send(random_compliment)
-    
-    
-    
-    
-    ]
-    
+    if message.content.startswith('!inspire me'):
+        await message.channel.send(random.choice(quotes))
 
 client.run('OTQ0NzYzMDExNjE1MzE4MDY3.YhGVHg.IOOPn_Y9nPzAtZS2YQJbc5qZuys')

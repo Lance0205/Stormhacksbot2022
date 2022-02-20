@@ -12,18 +12,24 @@ for quote in quoteOpen:
     quote = quote.strip()
     quotes.append(quote)
 
-
-
-animals = {"dog" : "Hint: 6 letter word",
-"elk" : "Hint: 3 letter word",
-"fox" : "Hint: 3 letter word",
-"cat" : "Hint: 3 letter word",
-"ape" : "Hint: 3 letter word",
-"yak" : "Hint: 3 letter word",
-"bat" : "Hint: 3 letter word",
-"owl" : "Hint: 3 letter word"
+animals = {"spider" : "Hint: 6 letter word",
+"walrus" : "Hint: 6 letter word",
+"monkey" : "Hint: 6 letter word",
+"turtle" : "Hint: 6 letter word",
+"wombat" : "Hint: 6 letter word",
+"parrot" : "Hint: 6 letter word",
+"alpaca" : "Hint: 6 letter word",
+"salmon" : "Hint: 6 letter word",
+"beaver" : "Hint: 6 letter word",
+"rabbit" : "Hint: 6 letter word",
+"falcon" : "Hint: 6 letter word",
+"bobcat" : "Hint: 6 letter word",
+"cougar" : "Hint: 6 letter word",
+"jaguar" : "Hint: 6 letter word",
+"pigeon" : "Hint: 6 letter word",
+"toucan" : "Hint: 6 letter word",
+"canary" : "Hint: 6 letter word",
 }
-
 
 countries = {"Canada" : "Hint: 6 letter word",
 "Brazil" : "Hint: 6 letter word",

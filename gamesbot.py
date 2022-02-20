@@ -1,13 +1,11 @@
 #topic: animals, countries
 
 import random
-from webbrowser import get
 
-#animalsRead = open("animals.txt",'r',encoding="utf-8")
-animals = {"dog": "this is a dog"}
+animalsRead = open("animals.txt",'r',encoding="utf-8")
+animals = {}
 
-'''
-for quote in animalsRead:
+for animal in animalsRead:
     animal = animal.strip()
     animal = animal.split(",")
     animals[animal[0]] = animal[1:]
@@ -18,8 +16,7 @@ countries = {}
 for country in countriesRead:
     country = country.strip()
     country = country.split(",")
-    countries[country[0]] = country[1:]
-'''
+
 userInput = input("Chose your theme (animals, countries, etc): ")
 
 if userInput == "animals":
@@ -29,6 +26,12 @@ if userInput == "animals":
 
     hint = items[1]
 
+elif userInput == "countries":
+    items = random.choice(list(countries.items()))
+
+    keyword = items[0]
+
+    hint = items[1]
 
 for guess in range(6):
     userGuess = input("Enter your guess ({}): ".format(userInput))

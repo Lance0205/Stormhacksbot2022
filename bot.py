@@ -65,7 +65,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():  
-    channel = client.get_channel(944441519140663319) 
+    channel = client.get_channel(944882244357619712) 
     await channel.send('Hi, I am Break Bot! Enter "i need a break" if you want to play a fun game or enter "inspire me" if you want an inspirational quote: ')
 
 @client.event

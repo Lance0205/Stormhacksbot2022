@@ -1,16 +1,18 @@
 import discord
-from discord.ext import commands
 
-TOKEN = 'OTQ0NzYzMDExNjE1MzE4MDY3.YhGVHg.IOOPn_Y9nPzAtZS2YQJbc5qZuys'
-
-client = commands.Bot(command_prefix = '!')
+client = discord.Client()
 
 @client.event
 async def on_ready():
-    print("Bot is ready.")
+    print('We have logged in as {0.user}'.format(client))
 
-@client.command()
-async def ping():
-    await client.say('Pong!')
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
 
-client.run(TOKEN)
+    if message.content.startswith('help me'):
+        await message.channel.send('WE ALL LOVE YOU!')
+        
+
+client.run('OTQ0NzYzMDExNjE1MzE4MDY3.YhGVHg.IOOPn_Y9nPzAtZS2YQJbc5qZuys')

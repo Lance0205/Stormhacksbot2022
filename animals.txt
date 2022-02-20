@@ -1,2 +1,0 @@
-dog,this is a dog
-cat,this a cat

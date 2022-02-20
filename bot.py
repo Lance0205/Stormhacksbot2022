@@ -25,7 +25,32 @@ animals = {"dog" : "Hint: 6 letter word",
 }
 
 
-countries = {"Canada" : "this is Canada"}
+countries = {"Canada" : "Hint: 6 letter word",
+"Brazil" : "Hint: 6 letter word",
+"France" : "Hint: 6 letter word",
+"Mexico" : "Hint: 6 letter word",
+"Monaco" : "Hint: 6 letter word",
+"Poland" : "Hint: 6 letter word",
+"Russia" : "Hint: 6 letter word",
+"Turkey" : "Hint: 6 letter word",
+"Sweden" : "Hint: 6 letter word",
+"Serbia" : "Hint: 6 letter word",
+"Israel" : "Hint: 6 letter word",
+"Greece" : "Hint: 6 letter word",
+"Angola" : "Hint: 6 letter word",
+"Kosovo" : "Hint: 6 letter word",
+"Belize" : "Hint: 6 letter word",
+"Jordan" : "Hint: 6 letter word",
+"Latvia" : "Hint: 6 letter word",
+"Norway" : "Hint: 6 letter word",
+"Panama" : "Hint: 6 letter word",
+"Taiwan" : "Hint: 6 letter word",
+"Uganda" : "Hint: 6 letter word",
+"Zambia" : "Hint: 6 letter word",
+"Brunei" : "Hint: 6 letter word",
+"Guinea" : "Hint: 6 letter word",
+"Guyana" : "Hint: 6 letter word",
+}
 
 client = discord.Client()
 

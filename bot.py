@@ -3,7 +3,9 @@ import random
 import time
 
 keyword = ''
+hint = ''
 guess = 0
+control = 1
 
 #FOR QUOTES
 quoteOpen = open("quotes.txt",'r',encoding="utf-8")
@@ -31,58 +33,62 @@ animals = {"spider" : "Hint: 6 letter word",
 "canary" : "Hint: 6 letter word",
 }
 
-countries = {"Canada" : "Hint: 6 letter word",
-"Brazil" : "Hint: 6 letter word",
-"France" : "Hint: 6 letter word",
-"Mexico" : "Hint: 6 letter word",
-"Monaco" : "Hint: 6 letter word",
-"Poland" : "Hint: 6 letter word",
-"Russia" : "Hint: 6 letter word",
-"Turkey" : "Hint: 6 letter word",
-"Sweden" : "Hint: 6 letter word",
-"Serbia" : "Hint: 6 letter word",
-"Israel" : "Hint: 6 letter word",
-"Greece" : "Hint: 6 letter word",
-"Angola" : "Hint: 6 letter word",
-"Kosovo" : "Hint: 6 letter word",
-"Belize" : "Hint: 6 letter word",
-"Jordan" : "Hint: 6 letter word",
-"Latvia" : "Hint: 6 letter word",
-"Norway" : "Hint: 6 letter word",
-"Panama" : "Hint: 6 letter word",
-"Taiwan" : "Hint: 6 letter word",
-"Uganda" : "Hint: 6 letter word",
-"Zambia" : "Hint: 6 letter word",
-"Brunei" : "Hint: 6 letter word",
-"Guinea" : "Hint: 6 letter word",
-"Guyana" : "Hint: 6 letter word",
+countries = {"canada" : "Hint: 6 letter word",
+"brazil" : "Hint: 6 letter word",
+"france" : "Hint: 6 letter word",
+"mexico" : "Hint: 6 letter word",
+"monaco" : "Hint: 6 letter word",
+"poland" : "Hint: 6 letter word",
+"russia" : "Hint: 6 letter word",
+"turkey" : "Hint: 6 letter word",
+"sweden" : "Hint: 6 letter word",
+"serbia" : "Hint: 6 letter word",
+"israel" : "Hint: 6 letter word",
+"greece" : "Hint: 6 letter word",
+"angola" : "Hint: 6 letter word",
+"kosovo" : "Hint: 6 letter word",
+"belize" : "Hint: 6 letter word",
+"jordan" : "Hint: 6 letter word",
+"latvia" : "Hint: 6 letter word",
+"norway" : "Hint: 6 letter word",
+"panama" : "Hint: 6 letter word",
+"taiwan" : "Hint: 6 letter word",
+"uganda" : "Hint: 6 letter word",
+"zambia" : "Hint: 6 letter word",
+"brunei" : "Hint: 6 letter word",
+"guinea" : "Hint: 6 letter word",
+"guyana" : "Hint: 6 letter word",
 }
 
 client = discord.Client()
+client = discord.Client()
 
 @client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+async def on_ready():  
+    channel = client.get_channel(944441519140663319) 
+    await channel.send('Hi, I am Break Bot! Enter "i need a break" if you want to play a fun game or enter "inspire me" if you want an inspirational quote: ')
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!inspire me'):
-        await message.channel.send(random.choice(quotes))
-
 @client.event 
 async def on_message(message, a = None):
+    if message.content.startswith('inspire me'):
+        await message.channel.send(random.choice(quotes))
+
     if message.author == client.user:
         return
 
     global keyword
+    global hint
+    global control
 
-    if message.content.startswith('break'):
+    if message.content.startswith('i need a break'):
         await message.channel.send("Lets play Wardle!")
 
-        await message.channel.send("Chose your theme (animals, countries): ")
+        await message.channel.send("Choose and enter your theme (animals, countries): ")
         return 
 
     if message.content.startswith("animals"): 
@@ -90,6 +96,8 @@ async def on_message(message, a = None):
         keyword = items[0]
         hint = items[1]
         userInput = "animals"
+        await message.channel.send("{} . Enter your guess: ".format(hint))
+        control = 0
         return
         
 
@@ -98,10 +106,13 @@ async def on_message(message, a = None):
         keyword = items[0]
         hint = items[1]
         userInput = "countries"
+        await message.channel.send("{} . Enter your guess: ".format(hint))
+        control = 0
         return
         
-    else:
+    elif control == 0:
         global guess
+        await message.channel.send("Enter your guess: ")
         if guess<6:
             guess += 1
             
@@ -118,12 +129,13 @@ async def on_message(message, a = None):
                         displayGuess += underline
 
                 else:
-                    displayGuess += "\_"
+                    displayGuess += "\-"
         
                 i+=1
             await message.channel.send("Result is {}".format(displayGuess))
+        else:
+            await message.channel.send("The answer was {}!".format(keyword))
+            control = 1
+  
         
-
-    
-
 client.run('OTQ0NzYzMDExNjE1MzE4MDY3.YhGVHg.IOOPn_Y9nPzAtZS2YQJbc5qZuys')

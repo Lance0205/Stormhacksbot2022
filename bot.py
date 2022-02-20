@@ -14,7 +14,14 @@ for quote in quoteOpen:
 
 
 
-animals = {"dog" : "three","elk" : "
+animals = {"dog" : "Hint: 6 letter word",
+"elk" : "Hint: 3 letter word",
+"fox" : "Hint: 3 letter word",
+"cat" : "Hint: 3 letter word",
+"ape" : "Hint: 3 letter word",
+"yak" : "Hint: 3 letter word",
+"bat" : "Hint: 3 letter word",
+"owl" : "Hint: 3 letter word"
 }
 
 
@@ -42,9 +49,9 @@ async def on_message(message, a = None):
     global keyword
 
     if message.content.startswith('break'):
-        await message.channel.send("Lets play Wardle")
+        await message.channel.send("Lets play Wardle!")
 
-        await message.channel.send("Chose your theme (animals, countries, etc): ")
+        await message.channel.send("Chose your theme (animals, countries): ")
         return 
 
     if message.content.startswith("animals"): 
